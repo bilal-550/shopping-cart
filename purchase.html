@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Complete Purchase</title>
+  <link href="https://fonts.googleapis.com/css2?family=Baloo+Tamma+2&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+  <script src="main.js" defer></script>
+  <script src="purchase.js" defer></script>
+  <script>
+    $(function () {
+      $('[data-toggle="tooltip"]').tooltip()
+    })
+  </script>
+  <style>
+    * {
+      font-family: 'Baloo Tamma 2', 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    }
+
+    body {
+      min-height: 100vh;
+      overflow: hidden;
+    }
+
+    @media screen and (min-width: 768px) {
+      header {
+        font-size: 4.5rem !important;
+      }
+    }
+
+    .link-no-style,
+    .link-no-style:hover,
+    .link-no-style:active,
+    .link-no-style:focus {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    input::-webkit-outer-spin-button,
+    input::-webkit-inner-spin-button {
+      -webkit-appearance: none;
+      margin: 0;
+    }
+
+    input[type=number] {
+      -moz-appearance: textfield;
+      appearance: textfeild;
+    }
+
+    .card-icon.visa {
+      width: 50px;
+      height: 20px;
+    }
+
+    .card-icon.master-card {
+      width: 50px;
+      height: 50px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <header class="display-4 text-center  my-3">Thanks for Purchasing</header>
+  <div class="cart d-flex flex-column">
+    <ul class="list-group mx-4 cart-list"></ul>
+    <h2 class="text-center mx-2 mt-4 align-self-center">Total: <span id="total">$0</span></h2>
+    <button class="btn btn-success align-self-center" data-toggle="modal" data-target="#purchase-modal">Purchase</button>
+  </div>
+
+  <div class="modal fade" id="purchase-modal" tabindex="-1" role="dialog" aria-labelledby="purchase-modal" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Complete your Purchase</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form id="purchase-form">
+            <div class="form-group">
+              <label for="name" class="col-form-label">Name:</label>
+              <input type="text" class="form-control" id="name">
+              <p class="text-danger mt-1" id="name-error"></p>
+            </div>
+            <div class="form-group">
+              <label for="credit-card" class="col-form-label">Credit Card Number: ( <img src="images/visa.jpg" alt="Visa" class="card-icon visa"> , <img src="images/master-card.png" alt="Master Card class=" class="card-icon master-card"> )</label>
+              <input type="text" name="credit-card" id="credit-card" class="form-control">
+              <p class="text-danger mt-1" id="credit-card-error"></p>
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-success" id="purchase-button">Purchase</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</body>
+
+</html>
